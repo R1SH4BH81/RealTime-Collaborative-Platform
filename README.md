@@ -1,4 +1,4 @@
-# react-node-websockets-demo
+
 A simple collaborative document editing app built with React and Node
 
 ![](./media/preview.gif)
