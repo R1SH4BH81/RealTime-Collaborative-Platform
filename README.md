@@ -1,5 +1,5 @@
 
-A simple collaborative document editing app built with React and Node
+A simple collaborative document editing app built with React
 
 
 
