@@ -58,7 +58,7 @@ body {
   background: #f9fafb;
   overflow: hidden;
   gap: 20px;
-  padding: 10px 2px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -66,10 +66,11 @@ body {
 .editor-section {
   flex: 1;
   min-width: 300px;
-  background: white;
-  border-radius: 8px;
+  background: none;
+
   border: 1px solid #e5e7eb;
-  padding: 0;
+  padding: 12px 5px;
+
   overflow-y: auto;
   box-sizing: border-box;
   max-height: 100%;
@@ -233,7 +234,9 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(147, 51, 234, 0.4);
 }
-
+.username {
+  padding: 10px;
+}
 /* ===== Current Users & History Button ===== */
 .currentusers {
   display: flex;

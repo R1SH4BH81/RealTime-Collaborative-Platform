@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       <Navbar color="light" light>
-        <NavbarBrand href="/">Real-time document editor</NavbarBrand>
+        <NavbarBrand>Real-time document editor</NavbarBrand>
       </Navbar>
       <div className="container-fluid">
         {username ? (
