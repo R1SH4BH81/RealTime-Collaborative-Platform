@@ -1,5 +1,5 @@
 
-A simple collaborative document editing app built with React
+A React-based real-time collaborative document editor using WebSockets for instant multi-user sync, featuring user presence indicators.
 
 
 
