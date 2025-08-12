@@ -58,7 +58,7 @@ body {
   background: #f9fafb;
   overflow: hidden;
   gap: 20px;
-  padding: 10px 20px;
+  padding: 10px 2px;
   box-sizing: border-box;
 }
 
@@ -69,7 +69,7 @@ body {
   background: white;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
-  padding: 15px;
+  padding: 0;
   overflow-y: auto;
   box-sizing: border-box;
   max-height: 100%;
