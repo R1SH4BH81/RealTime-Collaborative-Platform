@@ -49,7 +49,15 @@ function App() {
         <NavbarBrand href="/">Real-time document editor</NavbarBrand>
       </Navbar>
       <div className="container-fluid">
-        {username ? <EditorSection /> : <LoginSection onLogin={setUsername} />}
+        {username ? (
+          <div className="main-content">
+            <EditorSection className="editor-section" />
+          </div>
+        ) : (
+          <div className="login-section">
+            <LoginSection onLogin={setUsername} />
+          </div>
+        )}
       </div>
     </>
   );
@@ -95,18 +103,21 @@ function LoginSection({ onLogin }) {
 }
 
 function History() {
-  console.log("history");
   const { lastJsonMessage } = useWebSocket(WS_URL, {
     share: true,
     filter: isUserEvent,
   });
   const activities = lastJsonMessage?.data.userActivity || [];
+
   return (
-    <ul>
-      {activities.map((activity, index) => (
-        <li key={`activity-${index}`}>{activity}</li>
-      ))}
-    </ul>
+    <div className="history-container">
+      <div className="history-title">Recent Activity</div>
+      <ul className="history-list">
+        {activities.map((activity, index) => (
+          <li key={`activity-${index}`}>{activity}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -129,18 +140,44 @@ function Users() {
 }
 
 function EditorSection() {
+  const [showHistory, setShowHistory] = useState(false);
+
   return (
-    <div className="main-content">
-      <div className="document-holder">
+    <>
+      <div className="editor-section">
         <div className="currentusers">
-          <Users />
+          <div>
+            <Users />
+          </div>
+          {/* <button
+            className="history-toggle-btn"
+            onClick={() => setShowHistory(true)}
+          >
+            Show History
+          </button> */}
         </div>
+
         <Document />
+
+        {showHistory && (
+          <div
+            className="history-overlay"
+            onClick={() => setShowHistory(false)}
+          >
+            <div onClick={(e) => e.stopPropagation()}>
+              <button
+                className="history-close-btn"
+                onClick={() => setShowHistory(false)}
+                aria-label="Close History"
+              >
+                ×
+              </button>
+              <History />
+            </div>
+          </div>
+        )}
       </div>
-      <div className="history-holder">
-        <History />
-      </div>
-    </div>
+    </>
   );
 }
 

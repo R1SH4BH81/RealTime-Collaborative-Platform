@@ -1,268 +1,292 @@
+/* ===== General Reset & Page Styling ===== */
+html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Merriweather', serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100vw;
+  font-family: "Nunito", serif;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: #212121;
+  overflow: hidden; /* Prevent scrolling on entire page */
 }
 
-.account {
-	 height: 100vh;
-	 width: 100%;
-	 min-height: 100vh;
-	 display: flex;
-	 overflow-y: auto;
-   background: #eee;
+/* Hide scrollbar globally */
+body::-webkit-scrollbar {
+  display: none;
 }
- .account.account--photo {
-	 background: #6fb9fb;
-}
- .account.account--photo .account__card {
-	 background-color: rgba(0, 10, 16, 0.8);
-	 color: #fff;
-}
- .account.account--photo .form__form-group-icon, .account.account--photo .form__form-group-button {
-	 background: transparent;
-}
- .account.account--photo .form__form-group-icon, .account.account--photo input:not(:last-child) {
-	 border-right: none;
-}
- .account.account--photo .form__form-group-button, .account.account--photo input {
-	 border-left: none;
-}
- .account.account--photo .form__form-group-button.active {
-	 border-color: #eff1f5;
-}
- .account.account--photo .form__form-group-button.active svg {
-	 fill: #eee;
-}
- .account.account--photo input {
-	 color: #fff;
-}
- .account.account--photo input:focus {
-	 border-color: #eff1f5;
-}
- .account.account--photo p {
-	 color: #fff;
-}
- .account.account--photo .account__title {
-	 color: #fff;
-}
- .account__wrapper {
-	 margin: auto;
-	 padding: 10px;
-}
- .account__card {
-	 background-color: #fff;
-   margin: 30px auto auto auto;
-	 padding: 50px 60px;
-   width: 500px;
-}
- .account__profile {
-	 text-align: center;
-}
- .account__btns {
-	 display: flex;
-	 width: calc(100% + 10px);
-	 margin: -10px 0 -20px -10px;
-}
- .account__btns a {
-	 margin: 10px 0 20px 10px;
-	 white-space: nowrap;
-}
- .account__btn {
-	 width: 100%;
-	 margin-right: 0;
-}
- .account__avatar {
-	 height: 64px;
-	 width: 64px;
-	 border-radius: 50%;
-	 overflow: hidden;
-}
- .account__name {
-	 font-size: 11px;
-	 text-transform: uppercase;
-	 font-weight: 700;
-	 line-height: 15px;
-	 margin: 5px 0 5px 0px;
-}
- .account__sub {
-	 margin-top: 0;
-	 margin-bottom: 10px;
-	 color: #656262;
-	 font-size: 11px;
-	 line-height: 15px;
-}
- .account__forgot-password {
-	 position: absolute;
-	 font-size: 11px;
-	 line-height: 15px;
-	 bottom: -18px;
-	 right: 0;
-}
- .account__forgot-password a {
-	 color: #70bbfd;
-}
- .account__forgot-password a:hover {
-	 color: #3ea3fc;
-	 text-decoration: none;
-}
- .form__form-group--forgot {
-	 margin-bottom: 40px;
-}
- .account__or {
-	 text-align: center;
-	 margin-top: 35px;
-	 margin-bottom: 20px;
-	 position: relative;
-}
- .account__or:before, .account__or:after {
-	 content: "";
-	 height: 1px;
-	 width: calc(50% - 90px);
-	 background: #ddd;
-	 position: absolute;
-	 top: 10px;
-}
- .account__or:before {
-	 left: 0;
-}
- .account__or:after {
-	 right: 0;
-}
- .account__social {
-	 text-align: center;
-}
- .account__social-btn {
-	 display: inline-block;
-	 height: 38px;
-	 width: 38px;
-	 border-radius: 5px;
-	 padding: 9px;
-	 margin-right: 10px;
-	 transition: all 0.3s;
-	 border: none;
-}
- .account__social-btn:last-child {
-	 margin-right: 0;
-}
- .account__social-btn svg {
-	 fill: #fff;
-	 height: 20px;
-	 width: 20px;
-}
- .account__social-btn.account__social-btn--facebook {
-	 background: #4766a4;
-}
- .account__social-btn.account__social-btn--facebook:hover {
-	 background: #385080;
-}
- .account__social-btn.account__social-btn--google {
-	 background: #c74d4d;
-}
- .account__social-btn.account__social-btn--google:hover {
-	 background: #ab3636;
-}
- .account__head {
-	 margin-bottom: 30px;
-	 padding-left: 10px;
-	 border-left: 4px solid #70bbfd;
-}
- .account__logo {
-	 font-weight: 700;
-}
- .account__logo-accent {
-	 color: #70bbfd;
-}
- .account__have-account {
-	 text-align: center;
-	 margin-top: 20px;
-}
- .account__have-account a {
-	 color: #70bbfd;
-	 transition: all 0.3s;
-}
- .account__have-account a:hover {
-	 color: #3ea3fc;
-	 text-decoration: none;
-}
- @media screen and (max-width: 520px) {
-	 .account__card {
-		 padding: 35px 30px;
-	}
-}
- @media screen and (max-width: 425px) {
-	 .account__btns {
-		 flex-wrap: wrap;
-	}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.form-control {
-  margin: 10px 0px;
+/* ===== Navbar ===== */
+.navbar {
+  background: white !important;
+  padding: 12px 20px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  z-index: 1000;
 }
-
-.header-editor {
-  background: #fff;
-  outline: none;
-  padding: 20px;
-  border: 1px solid #b3b3b1;
-}
-
-.body-editor {
-  outline: none;
-  background: #fff;
-  height: 100vh;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.currentusers {
-  margin: 20px 0;
-  display: flex;
-}
-
 .navbar-brand {
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 18px;
 }
 
-.userInfo {
-  width: 40px;
-  height: 40px;
-  display: -webkit-flex;
-  display: flex;
-  border-radius: 50%;
-  margin-right: 10px;
-  background: #FFF;
-}
-
+/* ===== Layout ===== */
 .container-fluid {
-  padding: 0px;
+  width: 100vw;
+  min-width: 100vw !important;
+  height: 100vh; /* Full viewport height */
+  padding: 0 !important;
+  padding-top: 56px; /* Navbar height offset */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent page scroll */
+  display: flex;
+  flex-direction: column;
 }
 
+/* Main content below navbar fills remaining space */
 .main-content {
   display: flex;
   flex-wrap: nowrap;
-  padding: 15px 50px;
-  background: #eee;
+  width: 100%;
+  height: calc(100vh - 56px);
+  background: #f9fafb;
+  overflow: hidden;
+  gap: 20px;
+  padding: 10px 20px;
+  box-sizing: border-box;
 }
 
-.document-holder {
+/* ===== Editor Section ===== */
+.editor-section {
   flex: 1;
-}
-
-.history-holder {
-  width: 300px;
-  background: #FFF;
   min-width: 300px;
-  margin: 80px 0px 90px 15px;
-  height: 100vh;
-  border: 1px solid #ccc;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  padding: 15px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  max-height: 100%;
 }
 
-.history-holder ul {
-  padding: 9px;
+/* Scrollbar styles for editor */
+.editor-section::-webkit-scrollbar {
+  width: 6px;
+}
+.editor-section::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* ===== History Section Overlay ===== */
+.history-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.history-overlay > div {
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Close Button */
+.history-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 32px;
+  background: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.history-close-btn:hover {
+  color: #555;
+}
+
+.history-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.history-list {
   list-style: none;
-  font-size: 12px;
-  color: #4e4e4e;
+  padding: 0;
+  margin: 0;
+}
+
+.history-list li {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.history-list li:hover {
+  background-color: #f3f4f6;
+}
+
+/* ===== Login Page ===== */
+.login-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+  width: 100vw;
+}
+
+.account {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.account__wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.account__card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.account__profile p {
+  margin: 0;
+  color: white;
+}
+.account__name {
+  font-size: 20px;
+  font-weight: 600;
+}
+.account__sub {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+/* ===== Inputs & Buttons ===== */
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.account__btn {
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.4);
+}
+
+/* ===== Current Users & History Button ===== */
+.currentusers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.currentusers > div {
+  display: flex;
+  gap: 10px;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.history-toggle-btn {
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.history-toggle-btn:hover {
+  background: linear-gradient(90deg, #5c53f2, #a25cf4);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  .history-overlay > div {
+    max-height: 50vh;
+    width: 90vw;
+  }
 }
