@@ -8,6 +8,9 @@ import "./App.css";
 
 const WS_URL = process.env.REACT_APP_WS_URL;
 console.log("WebSocket URL:", WS_URL);
+let s = new WebSocket(WS_URL);
+s.onopen = () => console.log("Connected!");
+s.onmessage = (msg) => console.log("Message:", msg.data);
 
 function isUserEvent(message) {
   let evt = JSON.parse(message.data);
