@@ -179,7 +179,7 @@ body {
 
 .account__wrapper {
   width: 100%;
-  max-width: 400px;
+  width: 350px;
 }
 
 .account__card {
