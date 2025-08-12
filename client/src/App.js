@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navbar, NavbarBrand, UncontrolledTooltip } from "reactstrap";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 import { DefaultEditor } from "react-simple-wysiwyg";
@@ -150,16 +150,37 @@ function Document() {
     filter: isDocumentEvent,
   });
 
-  let html = lastJsonMessage?.data.editorContent || "";
+  const [localHtml, setLocalHtml] = useState(
+    lastJsonMessage?.data.editorContent || ""
+  );
+  const debounceTimer = useRef(null);
+
+  // Update local editor content when receiving updates from others
+  useEffect(() => {
+    if (lastJsonMessage?.data?.editorContent !== undefined) {
+      setLocalHtml(lastJsonMessage.data.editorContent);
+    }
+  }, [lastJsonMessage]);
 
   function handleHtmlChange(e) {
-    sendJsonMessage({
-      type: "contentchange",
-      content: e.target.value,
-    });
+    const value = e.target.value;
+    setLocalHtml(value);
+
+    // Clear previous timer
+    if (debounceTimer.current) {
+      clearTimeout(debounceTimer.current);
+    }
+
+    // Set new debounce timer
+    debounceTimer.current = setTimeout(() => {
+      sendJsonMessage({
+        type: "contentchange",
+        content: value,
+      });
+    }, 800);
   }
 
-  return <DefaultEditor value={html} onChange={handleHtmlChange} />;
+  return <DefaultEditor value={localHtml} onChange={handleHtmlChange} />;
 }
 
 export default App;
